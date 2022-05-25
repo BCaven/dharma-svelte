@@ -1,4 +1,5 @@
 <!-- This is the example Potree provides that has a map included-->
+<!-- just looking at this code I have no idea where the CESIUM map is placed (if it is placed at all...), I might have missed it, but I do not think it is here-->
 <head>
 	<meta charset="utf-8">
 	<meta name="description" content="">
@@ -40,7 +41,7 @@
 	
 	<script>
 
-	import * as THREE from "../../libs/three.js/build/three.module.js";
+	import * as THREE from "../../libs/three.js/build/three.module.js";  // we can DEFINATELY make this more efficient... we do not need to import the entire library
 	
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 		
@@ -58,6 +59,7 @@
 		});
 		
 		// Load and add point cloud to scene
+        // we should probably make the point cloud location an array that we pass into this module so we can have multiple
 		Potree.loadPointCloud("http://5.9.65.151/mschuetz/potree/resources/pointclouds/riegl/retz/cloud.js", "Retz", function(e){ // replace this
 			let scene = viewer.scene;
 			let pointcloud = e.pointcloud;
