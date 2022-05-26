@@ -1,5 +1,8 @@
 <!-- This is the example Potree provides that has a map included-->
 <!-- the main thing we need to do to make this work is to change the file paths-->
+<script>
+	let urlHead = "../Potree_1.8";
+</script>
 <head>
 	<meta charset="utf-8">
 	<meta name="description" content="">
@@ -7,35 +10,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Potree Viewer</title>
     <!-- all of these reference paths need to be changed-->
-	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
-	<link rel="stylesheet" type="text/css" href="../libs/Cesium/Widgets/CesiumWidget/CesiumWidget.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/build/potree/potree.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/openlayers3/ol.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/spectrum/spectrum.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/jstree/themes/mixed/style.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/Cesium/Widgets/CesiumWidget/CesiumWidget.css">
 </head>
 
 <body>
-	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="../libs/spectrum/spectrum.js"></script>
-	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="../libs/other/BinaryHeap.js"></script>
-	<script src="../libs/tween/tween.min.js"></script>
-	<script src="../libs/d3/d3.js"></script>
-	<script src="../libs/proj4/proj4.js"></script>
-	<script src="../libs/openlayers3/ol.js"></script>
-	<script src="../libs/i18next/i18next.js"></script>
-	<script src="../libs/jstree/jstree.js"></script>
-	<script src="../build/potree/potree.js"></script>
-	<script src="../libs/plasio/js/laslaz.js"></script>
-	<script src="../libs/Cesium/Cesium.js"></script>
+	<!--<script src="{urlHead}/libs/jquery/jquery-3.1.1.min.js"></script>-->
+	<script src="{urlHead}/libs/spectrum/spectrum.js"></script>
+	<!--<script src="{urlHead}/libs/jquery-ui/jquery-ui.min.js"></script>-->
+	<script src="{urlHead}/libs/other/BinaryHeap.js"></script>
+	<script src="{urlHead}/libs/tween/tween.min.js"></script>
+	<script src="{urlHead}/libs/d3/d3.js"></script>
+	<script src="{urlHead}/libs/proj4/proj4.js"></script>
+	<script src="{urlHead}/libs/openlayers3/ol.js"></script>
+	<script src="{urlHead}/libs/i18next/i18next.js"></script>
+	<script src="{urlHead}/libs/jstree/jstree.js"></script>
+	<script src="{urlHead}/build/potree/potree.js"></script>
+	<script src="{urlHead}/libs/plasio/js/laslaz.js"></script>
+	<script src="{urlHead}/libs/Cesium/Cesium.js"></script>
 	
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
 	<!-- INCLUDE SETTINGS HERE -->
 	
 	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		
-		<div id="potree_render_area" style="background-image: url('../build/potree/resources/images/background.jpg');">
+		<div id="potree_render_area" style="background-image: url('{urlHead}/build/potree/resources/images/background.jpg');">
 			<div id="cesiumContainer" style="position: absolute; width: 100%; height: 100%; background-color:green"></div>
 		</div>
 		<div id="potree_sidebar_container"> </div>
@@ -44,7 +47,7 @@
 
 <script>
 
-	import * as THREE from "../libs/three.js/build/three.module.js"; // probably do not need to import all of this
+	import * as THREE from urlHead + "/libs/three.js/build/three.module.js"; // probably do not need to import all of this
 	
 	window.cesiumViewer = new Cesium.Viewer('cesiumContainer', {
 		useDefaultRenderLoop: false,

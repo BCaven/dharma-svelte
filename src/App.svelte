@@ -1,11 +1,37 @@
 <script>
-import PotreeViewer from "./PotreeViewer.svelte";
-
+	//import PotreeViewer from "./PotreeViewer.svelte";
+	import Title from "./Title.svelte";
+	import Map from "./Map.svelte";
+	import Info from "./Info.svelte";
+	let mapId = 0; // need to add boundaries for these so they do not go over/under the expected ids
+	let infoId = 0;
+	let maps = [ // these are place-holders, will need to change them to jsons for the actual thing
+		"example map 1",
+		"example map 2",
+		"example map 3"
+	];
+	let infos = [
+		"example info 1",
+		"example info 2"
+	];
+	let start = false;
+	let showInfo = false;
+	$: map = maps[mapId];
+	$: info = infos[infoId];
+	
 	
 </script>
 
 <main>
-	<PotreeViewer/>
+	{#if !start}
+		<Title {map} bind:mapId bind:start/>
+	{:else}
+		<Map map = {maps[mapId]} bind:infoId bind:showInfo/>
+	{/if}
+
+	{#if showInfo} <!-- could totally put this in the map file... but it feels better to have it all controlled by the app-->
+		<Info {info} bind:showInfo/>
+	{/if}
 </main>
 
 <style>
