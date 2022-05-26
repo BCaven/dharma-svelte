@@ -23,10 +23,13 @@
 </script>
 
 <main>
+	
 	{#if !start}
 		<Title {map} bind:mapId bind:start/>
 	{:else}
-		<Map map = {maps[mapId]} bind:infoId bind:showInfo/>
+		{#if !showInfo}
+			<Map map = {map} bind:infoId bind:showInfo bind:start/>
+		{/if}
 	{/if}
 
 	{#if showInfo} <!-- could totally put this in the map file... but it feels better to have it all controlled by the app-->
