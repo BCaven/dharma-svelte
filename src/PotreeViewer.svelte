@@ -1,14 +1,10 @@
 <!-- This is the example Potree provides that has a map included-->
 <!-- the main thing we need to do to make this work is to change the file paths-->
 <script>
-	let urlHead = "../Potree_1.8";
+	let urlHead = "Potree_1.8";
 </script>
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
+	
     <!-- all of these reference paths need to be changed-->
 	<link rel="stylesheet" type="text/css" href="{urlHead}/build/potree/potree.css">
 	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/jquery-ui/jquery-ui.min.css">
@@ -41,7 +37,7 @@
 		<div id="potree_render_area" style="background-image: url('{urlHead}/build/potree/resources/images/background.jpg');">
 			<div id="cesiumContainer" style="position: absolute; width: 100%; height: 100%; background-color:green"></div>
 		</div>
-		<div id="potree_sidebar_container"> </div>
+		
 	</div>
 
 
@@ -97,7 +93,7 @@
 		potreeViewer.toggleSidebar();
 	});
 	
-	Potree.loadPointCloud("http://5.9.65.151/mschuetz/potree/resources/pointclouds/riegl/retz/cloud.js", "Retz", function(e){ // change this url
+	Potree.loadPointCloud("./Potree_1.8/pointclouds/lion_takanawa/cloud.js", "lion", function(e){ // change this url
 		let scene = potreeViewer.scene;
 		
 		scene.addPointCloud(e.pointcloud);
