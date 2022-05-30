@@ -23,7 +23,7 @@
 </script>
 
 <main>
-	
+	<h1> Does this work? </h1>
 	{#if !start}
 		<Title {map} bind:mapId bind:start/>
 	{:else}
