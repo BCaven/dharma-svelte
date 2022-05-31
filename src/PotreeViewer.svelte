@@ -1,50 +1,18 @@
 <script>
 	let urlHead = "./Potree_1.8";
-</script>
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
-
-	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
-	<link rel="stylesheet" type="text/css" href="../libs/Cesium/Widgets/CesiumWidget/CesiumWidget.css">
-</head>
-
-<body>
-	<script src="{urlHead}/libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="{urlHead}/libs/spectrum/spectrum.js"></script>
-	<script src="{urlHead}/libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="{urlHead}/libs/other/BinaryHeap.js"></script>
-	<script src="{urlHead}/libs/tween/tween.min.js"></script>
-	<script src="{urlHead}/libs/d3/d3.js"></script>
-	<script src="{urlHead}/libs/proj4/proj4.js"></script>
-	<script src="{urlHead}/libs/openlayers3/ol.js"></script>
-	<script src="{urlHead}/libs/i18next/i18next.js"></script>
-	<script src="{urlHead}/libs/jstree/jstree.js"></script>
-	<script src="{urlHead}/build/potree/potree.js"></script>
-	<script src="{urlHead}/libs/plasio/js/laslaz.js"></script>
-	<script src="{urlHead}/libs/Cesium/Cesium.js"></script>
-	
-	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
-	<!-- INCLUDE SETTINGS HERE -->
-	
-	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
-		
-		<div id="potree_render_area" style="background-image: url('{urlHead}/build/potree/resources/images/background.jpg');">
-			<div id="cesiumContainer" style="position: absolute; width: 100%; height: 100%; background-color:green"></div>
-		</div>
-		<div id="potree_sidebar_container"> </div>
-	</div>
-
-
-<script>
-
+	import "./Potree_1.8/libs/jquery/jquery-3.1.1.min.js";
+	import "./Potree_1.8/libs/spectrum/spectrum.js";
+	import "./Potree_1.8/libs/jquery-ui/jquery-ui.min.js";
+	import "./Potree_1.8/libs/other/BinaryHeap.js";
+	import "./Potree_1.8/libs/tween/tween.min.js";
+	import "./Potree_1.8/libs/d3/d3.js";
+	import "./Potree_1.8/libs/proj4/proj4.js";
+	import "./Potree_1.8/libs/openlayers3/ol.js";
+	import "./Potree_1.8/libs/i18next/i18next.js";
+	import "./Potree_1.8/libs/jstree/jstree.js";
+	import "./Potree_1.8/build/potree/potree.js";
+	import "./Potree_1.8/libs/plasio/js/laslaz.js";
+	import "./Potree_1.8/libs/Cesium/Cesium.js";
 	import * as THREE from "./Potree_1.8/libs/three.js/build/three.module.js";
 	
 	window.cesiumViewer = new Cesium.Viewer('cesiumContainer', {
@@ -91,10 +59,10 @@
 
 	potreeViewer.loadGUI(() => {
 		potreeViewer.setLanguage('en');
-		$("#menu_appearance").next().show();
-		$("#menu_tools").next().show();
-		$("#menu_scene").next().show();
-		potreeViewer.toggleSidebar();
+		//$("#menu_appearance").next().show();
+		//$("#menu_tools").next().show();
+		//$("#menu_scene").next().show();
+		//potreeViewer.toggleSidebar();
 	});
 	
 	Potree.loadPointCloud("http://5.9.65.151/mschuetz/potree/resources/pointclouds/riegl/retz/cloud.js", "Retz", function(e){
@@ -132,78 +100,6 @@
 			});
 			scene.annotations.add(aTrainStation);
 
-			{ // Attribute Selector Annotation
-
-				// Create title element with jquery
-				let elTitle = $(`
-					<span>
-						Attribute:
-						<img title="Elevation" name="action_elevation" src="${Potree.resourcePath}/icons/profile.svg" class="annotation-action-icon"/>
-						<img title="RGB and Elevation" name="action_both" src="${Potree.resourcePath}/icons/rgb_elevation.png" class="annotation-action-icon"/>
-						<img title="RGB" name="action_rgb" src="${Potree.resourcePath}/icons/rgb.svg" class="annotation-action-icon"/>
-					</span>`);
-				elTitle.find("img[name=action_elevation]").click( () => {
-					scene.pointclouds.forEach( pc => pc.material.activeAttributeName = "elevation" );
-				});
-				elTitle.find("img[name=action_rgb]").click( () => {
-					scene.pointclouds.forEach( pc => pc.material.activeAttributeName = "rgba" );
-				});
-				elTitle.find("img[name=action_both]").click( () => {
-					scene.pointclouds.forEach( pc => pc.material.activeAttributeName = "composite" );
-				});
-
-				// Give the annotation a meaningful string representation for the sidebar
-				elTitle.toString = () => "Color Setting";
-
-				// Same as with other annotations, except title is a jquery object this time.
-				let aActions = new Potree.Annotation({
-					position: [569222.340, 5401213.625, 227],
-					title: elTitle
-				});
-				scene.annotations.add(aActions);
-			}
-
-			{ // Attribute Selector Annotation
-
-				let elTitle = $(`
-					<span>
-						Quality:
-						<span name="low"  style="font-family: monospace; margin-left: 4px">low</span>
-						<span name="med"  style="font-family: monospace; margin-left: 4px">med</span>
-						<span name="high" style="font-family: monospace; margin-left: 4px">high</span>
-					</span>`);
-				
-				elTitle.find("span").mouseover( (e) => {
-					$(e.target).css("filter", "drop-shadow(0px 0px 1px white)");
-				}).mouseout( (e) => {
-					$(e.target).css("filter", "");
-				});
-
-				elTitle.find("span[name=low]").click( () => {
-					potreeViewer.setPointBudget(1_000_000);
-					potreeViewer.useHQ = false;
-				});
-
-				elTitle.find("span[name=med]").click( () => {
-					potreeViewer.setPointBudget(3_000_000);
-					potreeViewer.useHQ = false;
-				});
-
-				elTitle.find("span[name=high]").click( () => {
-					potreeViewer.setPointBudget(4_000_000);
-					potreeViewer.useHQ = true;
-				});
-
-				// Give the annotation a meaningful string representation for the sidebar
-				elTitle.toString = () => "Quality Setting";
-
-				// Same as with other annotations, except title is a jquery object this time.
-				let aActions = new Potree.Annotation({
-					position: [570274.902, 5401873.626, 227],
-					title: elTitle
-				});
-				scene.annotations.add(aActions);
-			}
 		}
 		
 
@@ -286,5 +182,35 @@
 	requestAnimationFrame(loop);
 
 
-  </script>
+
+</script>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Potree Viewer</title>
+
+	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+	<link rel="stylesheet" type="text/css" href="../libs/Cesium/Widgets/CesiumWidget/CesiumWidget.css">
+</head>
+
+<body>
+
+	
+	
+	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+		
+		<div id="potree_render_area" style="background-image: url('{urlHead}/build/potree/resources/images/background.jpg');">
+			<div id="cesiumContainer" style="position: absolute; width: 100%; height: 100%; background-color:green"></div>
+		</div>
+		<div id="potree_sidebar_container"> </div>
+	</div>
+
+
+
 </body>
