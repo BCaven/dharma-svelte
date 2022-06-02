@@ -1,19 +1,19 @@
 <script>
-	let urlHead = "./Potree_1.8";
-	import "./Potree_1.8/libs/jquery/jquery-3.1.1.min.js";
-	import "./Potree_1.8/libs/spectrum/spectrum.js";
-	import "./Potree_1.8/libs/jquery-ui/jquery-ui.min.js";
-	import "./Potree_1.8/libs/other/BinaryHeap.js";
-	import "./Potree_1.8/libs/tween/tween.min.js";
-	import "./Potree_1.8/libs/d3/d3.js";
-	import "./Potree_1.8/libs/proj4/proj4.js";
-	import "./Potree_1.8/libs/openlayers3/ol.js";
-	import "./Potree_1.8/libs/i18next/i18next.js";
-	import "./Potree_1.8/libs/jstree/jstree.js";
-	import "./Potree_1.8/build/potree/potree.js";
-	import "./Potree_1.8/libs/plasio/js/laslaz.js";
-	import "./Potree_1.8/libs/Cesium/Cesium.js";
-	import * as THREE from "./Potree_1.8/libs/three.js/build/three.module.js";
+	let urlHead = "../Potree/potree-1.8";
+	import "../Potree/potree-1.8/libs/jquery/jquery-3.1.1.min.js";
+	import "../Potree/potree-1.8/libs/spectrum/spectrum.js";
+	import "../Potree/potree-1.8/libs/jquery-ui/jquery-ui.min.js";
+	import "../Potree/potree-1.8/libs/other/BinaryHeap.js";
+	import "../Potree/potree-1.8/libs/tween/tween.min.js";
+	import "../Potree/potree-1.8/libs/d3/d3.js";
+	import "../Potree/potree-1.8/libs/proj4/proj4.js";
+	import "../Potree/potree-1.8/libs/openlayers3/ol.js";
+	import "../Potree/potree-1.8/libs/i18next/i18next.js";
+	import "../Potree/potree-1.8/libs/jstree/jstree.js";
+	import "../Potree/potree-1.8/build/potree/potree.js";
+	import "../Potree/potree-1.8/libs/plasio/js/laslaz.js";
+	import "../Potree/potree-1.8/libs/Cesium/Cesium.js";
+	import * as THREE from "../Potree/potree-1.8/libs/three.js/build/three.module.js";
 	
 	// make struct (or whatever the js equivalent is) to create and store annotations
 	function Annotation(position, name, camera_loc, camera_tar) {
@@ -211,12 +211,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Potree Viewer</title>
 
-	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
-	<link rel="stylesheet" type="text/css" href="../libs/Cesium/Widgets/CesiumWidget/CesiumWidget.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/build/potree/potree.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/openlayers3/ol.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/spectrum/spectrum.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/jstree/themes/mixed/style.css">
+	<link rel="stylesheet" type="text/css" href="{urlHead}/libs/Cesium/Widgets/CesiumWidget/CesiumWidget.css">
 </head>
 
 <body>

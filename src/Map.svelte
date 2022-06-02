@@ -1,5 +1,5 @@
 <script>
-    //import PotreeViewer from "./PotreeViewer.svelte";
+    import PotreeViewer from "./PotreeViewer.svelte";
     export let map = "default map";
     export let infoId;
     export let showInfo = false;
@@ -17,4 +17,4 @@
 <button on:click = {() => onInfoClick(1)}> Info 2 </button>
 <button on:click = {() => start = false}> return </button>
 
-<!--<PotreeViewer/>-->
+<PotreeViewer/>
