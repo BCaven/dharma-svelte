@@ -15,6 +15,17 @@
 	import "./Potree_1.8/libs/Cesium/Cesium.js";
 	import * as THREE from "./Potree_1.8/libs/three.js/build/three.module.js";
 	
+	// make struct (or whatever the js equivalent is) to create and store annotations
+	function Annotation(position, name, camera_loc, camera_tar) {
+		self.pos = position; // coordinates are arrays of three floats
+		self.name = name;
+		self.cam_loc = camera_loc;
+		self.cam_tar = camera_tar;
+	}
+
+	let annotations = [
+		new Annotation([100, 100, 100], "test", [120, 120, 120], [100, 100, 100])
+	]
 	window.cesiumViewer = new Cesium.Viewer('cesiumContainer', {
 		useDefaultRenderLoop: false,
 		animation: false,
@@ -82,11 +93,19 @@
 		
 		scene.view.position.set(570975.577, 5398630.521, 1659.311);
 		scene.view.lookAt(570115.285, 5400866.092, 30.009);
-
-		{
+		
+		for (var anno in annotations) {
+			let tempAnno = new Potree.Annotation({
+				position: anno.pos,
+				title: anno.name,
+				cameraPosition: anno.cam_loc,
+				cameraTarget: anno.cam_tar
+			});
+			scene.annotations.add(tempAnno);
+			/*
 			let aTownHall = new Potree.Annotation({
 				position: [569879.768, 5400886.182, 80.691],
-				title: "Town Hall",
+				title: "Temple of Vespain and ",
 				cameraPosition: [569955.329, 5400822.949, 98.807],
 				cameraTarget: [569879.768, 5400886.182, 46.691]
 			});
@@ -99,6 +118,7 @@
 				cameraTarget: [570337.407, 5400522.730, 18.595]
 			});
 			scene.annotations.add(aTrainStation);
+			*/
 
 		}
 		
