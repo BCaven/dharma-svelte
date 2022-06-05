@@ -102,23 +102,7 @@
 				cameraTarget: anno.cam_tar
 			});
 			scene.annotations.add(tempAnno);
-			/*
-			let aTownHall = new Potree.Annotation({
-				position: [569879.768, 5400886.182, 80.691],
-				title: "Temple of Vespain and ",
-				cameraPosition: [569955.329, 5400822.949, 98.807],
-				cameraTarget: [569879.768, 5400886.182, 46.691]
-			});
-			scene.annotations.add(aTownHall);
-
-			let aTrainStation = new Potree.Annotation({
-				position: [570337.407, 5400522.730, 30],
-				title: "Train Station",
-				cameraPosition: [570377.074, 5400427.884, 100.576],
-				cameraTarget: [570337.407, 5400522.730, 18.595]
-			});
-			scene.annotations.add(aTrainStation);
-			*/
+			
 
 		}
 		

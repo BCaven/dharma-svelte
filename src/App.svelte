@@ -22,8 +22,10 @@
 	
 </script>
 
-<h1> But did it build? </h1>
+
 <main>
+	<h1> But did it build? </h1>
+	
 	{#if !start}
 		<Title {map} bind:mapId bind:start/>
 	{:else}
